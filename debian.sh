@@ -167,4 +167,25 @@ debian_grub_fix() {
   rm "$tempfile"
 }
 
+debian_udev_finish_service_fix() {
+  local unit_file="${FOLD}/hdd/lib/systemd/system/udev-finish.service"
+  local override_dir="${FOLD}/hdd/etc/systemd/system/udev-finish.service.d"
+  local override_file="${override_dir}/override.conf"
+  if ! [[ -f "${unit_file}" ]]; then
+    debug '# udev-finish.service not found. not installing override'
+    return
+  fi
+  debug '# install udev-finish.service override'
+  mkdir "${override_dir}"
+  {
+    echo "### ${COMPANY} - installimage"
+    echo '[Unit]'
+    echo 'After=basic.target'
+  } > "${override_file}"
+}
+
+install_initramfs_dropbear() {
+  debian_install_initramfs_dropbear
+}
+
 # vim: ai:ts=2:sw=2:et
