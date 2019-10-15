@@ -385,4 +385,8 @@ ubuntu_grub_fix() {
   rm "$tempfile"
 }
 
+install_initramfs_dropbear() {
+  debian_install_initramfs_dropbear
+}
+
 # vim: ai:ts=2:sw=2:et
