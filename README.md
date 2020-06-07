@@ -1,6 +1,11 @@
 
-this directory contains
-all the scripts for installimage
+this directory contains all the scripts for installimage.
+
+## Known Issues
+
+LUKS disk encryption only works with Debian & Ubuntu.
+
+LUKS disk encryption only works with RSA SSH keys.
 
 # Usage
 
