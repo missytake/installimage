@@ -7,6 +7,8 @@ LUKS disk encryption only works with Debian & Ubuntu.
 
 LUKS disk encryption only works with RSA SSH keys.
 
+cryptroot-unlock doesn't work with Debian 9.
+
 # Usage
 
 I wanted to started with the `installimage` command (documentation:
