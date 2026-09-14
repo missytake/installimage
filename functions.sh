@@ -1256,8 +1256,8 @@ validate_vars() {
     # test each partition line
     for ((i=1; i<=PART_COUNT; i++)); do
 
-      # test if the mountpoint is valid (start with / or swap or lvm)
-      CHECK="$(echo "${PART_MOUNT[$i]}" | grep -P '^(/\w*|none$|swap$|lvm$|lvm+luks$|btrfs\.\w+)')"
+      # test if the mountpoint is valid (start with / or swap or lvm or lvm+luks)
+      CHECK="$(echo "${PART_MOUNT[$i]}" | grep -P '^(/\w*|none$|swap$|lvm$|lvm\+luks$|btrfs\.\w+)')"
       if [ -z "$CHECK" ]; then
         graph_error "ERROR: Mountpoint for partition $i is not correct: '${PART_MOUNT[$i]}' is not a valid mountpoint"
         return 1
